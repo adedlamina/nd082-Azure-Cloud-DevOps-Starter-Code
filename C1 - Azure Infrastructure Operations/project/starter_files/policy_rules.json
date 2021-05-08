@@ -1,0 +1,14 @@
+{
+  "if":{
+  "allof": [
+              {
+                "field":"tags",
+                "exists":"false"
+              }
+  ]
+},
+"then":{
+  "effect":"deny"
+
+}
+}
