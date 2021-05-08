@@ -5,7 +5,18 @@
 		"subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}"
 	},
 	"builders": [{
-		**YOUR CODE HERE**
+		"type":"azure-arm",
+
+		"os_type":"Linux",
+		"image_publisher":"Canonical",
+		"image_offer":"ubuntuServer",
+		"image_sku":"18.04-LTS",
+
+		"managed_image_resource_group_name":"project-rg",
+		"managed_image_name":"PackerImage_01",
+
+		"Location":"South Africa North",
+		"vm-size":"Standard_F2S"
 	}],
 	"provisioners": [{
 		"inline": [
