@@ -1,12 +1,10 @@
 {
-	"variables": {
-		"client_id": "{{env `ARM_CLIENT_ID`}}",
-		"client_secret": "{{env `ARM_CLIENT_SECRET`}}",
-		"subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}"
-	},
-	"builders": [{
-		"type":"azure-arm",
 
+	"builders": [{
+		"use_azure_cli_auth": true,
+
+		"type":"azure-arm",
+		
 		"os_type":"Linux",
 		"image_publisher":"Canonical",
 		"image_offer":"ubuntuServer",
@@ -16,7 +14,7 @@
 		"managed_image_name":"PackerImage_01",
 
 		"Location":"South Africa North",
-		"vm-size":"Standard_F2S"
+		"vm_size":"Standard_F2S"
 	}],
 	"provisioners": [{
 		"inline": [
@@ -24,6 +22,6 @@
 			"nohup busybox httpd -f -p 80 &"
 		],
 		"inline_shebang": "/bin/sh -x",
-		"type: "shell"
+		"type": "shell"
 	}]
 }
